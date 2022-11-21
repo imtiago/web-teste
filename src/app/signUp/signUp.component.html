@@ -1,0 +1,33 @@
+<h5>
+    Cadastro de usuario
+</h5>
+
+<div class="tab-content">
+
+    <!-- Name input -->
+    <div class="form-outline mb-4">
+        <input type="text" [(ngModel)]="user.name" id="registerName" class="form-control" />
+        <label class="form-label" for="registerName">Nome</label>
+    </div>
+
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+        <input type="email"  [(ngModel)]="user.email" id="registerEmail" class="form-control" />
+        <label class="form-label" for="registerEmail">Email</label>
+    </div>
+
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+        <input type="password"  [(ngModel)]="user.password" id="registerPassword" class="form-control" />
+        <label class="form-label" for="registerPassword">Senha</label>
+    </div>
+
+    <!-- Repeat Password input -->
+    <div class="form-outline mb-4">
+        <input type="password"  [(ngModel)]="user.confirmPassword" id="registerRepeatPassword" class="form-control" />
+        <label class="form-label" for="registerRepeatPassword">Confirmacao de senha</label>
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-3" (click)="save()">Cadastra-se</button>
+</div>

@@ -1,0 +1,64 @@
+<div class="card mt-3">
+    <div class="card-header">
+        <div class="float-left">
+            <h4>imoveis</h4>
+        </div>
+        <div class="float-right">
+            <button type="button" class="btn btn-primary" [routerLink]="['add']">Novo Imovel</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <div *ngFor="let p of properties" class="card m-2" style="width: 18rem;">
+            <img src={{p.image}} class="card-img-top" alt={{p.name}}>
+            <div class="card-body">
+                <h5 class="card-title">{{p.name}}</h5>
+                <p class="card-text">
+                    <strong>Endereco: </strong>
+                    {{p.address}}
+                </p>
+                <p class="card-text">
+                    <strong>Detalhes: </strong>
+                    {{p.details}}
+                </p>
+                <p class="card-text">
+                    <strong>Valor: </strong>
+                    R${{p.price}}
+                </p>
+                <p class="card-text">
+                    <strong>Valor para venda:</strong>
+                    R${{p.saleValue}}
+                </p>
+                <p class="card-text">
+                    <strong>porcentagem de ganho:</strong>
+                    {{p.percent}}%
+                </p>
+                <p class="card-text">
+                    <strong>Disponivel:</strong>
+                    {{p.isAvailable ? "imovel Disponivel" : "imovel vendido"}}
+                </p>
+                <a class="btn btn-primary">Editar</a>
+                <a class="btn btn-danger" (click)="remove(p.id)">Excluir</a>
+                <a class="btn btn-info" (click)="sold(p.id)">Vender</a>
+            </div>
+        </div>
+
+        <ng-template #loading>
+            <span>Carregando Imoveis...</span>
+        </ng-template>
+
+    </div>
+</div>
+
+<ng-template #deleteModal>
+    <div class="modal-body text-center">
+        <p>
+            Tem certeza que deseja remover esse Imovel?
+        </p>
+        <button type="button" class="btn btn-default" (click)="onConfirmDelete()">Sim</button>
+        <button type="button" class="btn btn-primary" (click)="onDeclineDelete()">Nao</button>
+    </div>
+</ng-template>
+
+<div class="col s6">
+    <router-outlet></router-outlet>
+</div>

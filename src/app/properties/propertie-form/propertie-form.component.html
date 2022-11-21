@@ -1,0 +1,92 @@
+<h5 class="center">
+    Cadastro de imovel
+</h5>
+
+<form class="needs-validation" novalidate [formGroup]="form" style="padding-top: 10px">
+    <div class="form-row">
+        <div class="col-sm-12">
+            <label for="name">Nome</label>
+            <input type="text" class="form-control" id="name" placeholder="Nome" formControlName="name"
+                [ngClass]="{ 'is-invalid': submitted && hasError('name')}" />
+            <div class="invalid-feedback" *ngIf="hasError('name') && hasError('name')['required']">
+                Por favor informe um nome para o imovel.
+            </div>
+            <div class="invalid-feedback" *ngIf="hasError('name') && hasError('name')['minlength']">
+                Nome precisa ter no mínimo {{ hasError('name')['minlength'].requiredLength }} caracteres.
+            </div>
+            <div class="invalid-feedback" *ngIf="hasError('name') && hasError('name')['maxlength']">
+                Nome precisa ter no máximo {{ hasError('name')['maxlength'].requiredLength }} caracteres.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-sm-12">
+            <label for="address">endereco</label>
+            <input type="text" class="form-control" id="address" placeholder="Endereco" formControlName="address"
+                [ngClass]="{ 'is-invalid': submitted && hasError('address')}" />
+            <div class="invalid-feedback" *ngIf="hasError('address') && hasError('address')['required']">
+                Por favor informe o endereco.
+            </div>
+            <div class="invalid-feedback" *ngIf="hasError('address') && hasError('address')['minlength']">
+                endereco precisa ter no mínimo {{ hasError('address')['minlength'].requiredLength }} caracteres.
+            </div>
+            <div class="invalid-feedback" *ngIf="hasError('address') && hasError('address')['maxlength']">
+                endereco precisa ter no máximo {{ hasError('address')['maxlength'].requiredLength }} caracteres.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-sm-12">
+            <label for="details">Detalhes</label>
+            <input type="text" class="form-control" id="details" placeholder="Detalhes" formControlName="details"
+                [ngClass]="{ 'is-invalid': submitted && hasError('details')}" />
+            <div class="invalid-feedback" *ngIf="hasError('details') && hasError('details')['required']">
+                Detalhes sao obrigatorios.
+            </div>
+            <div class="invalid-feedback" *ngIf="hasError('details') && hasError('details')['minlength']">
+                detalhes precisa ter no mínimo {{ hasError('details')['minlength'].requiredLength }} caracteres.
+            </div>
+            <div class="invalid-feedback" *ngIf="hasError('details') && hasError('details')['maxlength']">
+                detalhes precisa ter no máximo {{ hasError('details')['maxlength'].requiredLength }} caracteres.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-sm-12">
+            <label for="price">Preço</label>
+            <input type="number" class="form-control" id="price" placeholder="Preço" formControlName="price"
+                [ngClass]="{ 'is-invalid': submitted && hasError('price')}" />
+            <div class="invalid-feedback" *ngIf="hasError('price') && hasError('price')['required']">
+                Por favor o valor do imovel.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-sm-12">
+            <label for="percent">Porcentagem de Lucro</label>
+            <input type="number" class="form-control" id="percent" placeholder="%" max='100' formControlName="percent"
+                [ngClass]="{ 'is-invalid': submitted && hasError('percent')}" />
+            <div class="invalid-feedback" *ngIf="hasError('percent') && hasError('percent')['required']">
+                Por favor a porcemtagem de lucro.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-sm-12">
+            <label for="details">Selecione uma imagem para capa</label>
+            <select class="form-control" id="image" formControlName="image">
+                <option *ngFor="let im of images" [value]='im'>{{im}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div style="margin-top: 10px">
+        <button type="sumit" class="btn btn-primary" (click)="onSubmit()">Salvar</button>
+        <button type="button" class="btn btn-default" (click)="onCancel()">Cancelar</button>
+    </div>
+</form>

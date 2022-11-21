@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col s6 text-center">
+        <h3>
+            Dashboard
+        </h3>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-yellow order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Todos os imoveis</h6>
+                    <h2 class="text-right"><i class="fa fa-refresh f-left"></i><span>{{
+                        allProperties
+                        }}</span></h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-blue order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Imoveis Vendidos</h6>
+                    <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>{{
+                        soldProperties
+                        }}</span></h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-green order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Imoveis Disponiveis</h6>
+                    <h2 class="text-right"><i class="fa fa-rocket f-left"></i><span>        {{
+                        pendingProperties
+                        }}
+                    </span></h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
